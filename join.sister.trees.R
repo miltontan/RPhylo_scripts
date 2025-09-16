@@ -6,16 +6,16 @@
 
 # Note: In the previous version, I didn't realize how binding a tree to a non-zero root.edge worked, but it looks like the below should work.
 
-join.sister.trees <- function(tree.x,tree.y,root.age) {
+join.sister.trees <- function(tree.x, tree.y, root.age) {
 # Checks:
 if (!inherits(tree.x, "phylo")) 
         stop("tree.x should be an object of class \"phylo\".")
 if (!inherits(tree.y, "phylo")) 
         stop("tree.y should be an object of class \"phylo\".")
-tree.x.root <- root.age - max(nodeHeights(tree.x))
+tree.x.root <- root.age - max(phytools::nodeHeights(tree.x))
 if (! tree.x.root > 0)
         stop("root.age for the new tree must be older than the crown age of tree.x")
-tree.y.root <- root.age - max(nodeHeights(tree.y))
+tree.y.root <- root.age - max(phytools::nodeHeights(tree.y))
 if (! tree.y.root > 0)
         stop("root.age for the new tree must be older than the crown age of tree.y")
 
@@ -24,6 +24,6 @@ tree.x$root.edge <- tree.x.root
 tree.y$root.edge <- tree.y.root
 
 # Bind the trees to the base tree
-result.tree <- bind.tree(tree.x,tree.y,where="root",position=tree.x.root)
+result.tree <- ape::bind.tree(tree.x, tree.y, where="root", position=tree.x.root)
 return(result.tree)
 }
