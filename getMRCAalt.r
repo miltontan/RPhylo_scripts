@@ -1,3 +1,6 @@
+# R function created by Milton Tan
+# Depends on ape and phytools
+
 # Get node label even if you provide only a single tip
 getMRCAorParent <- function(phy, tip) {
   if (!inherits(phy, "phylo")) 

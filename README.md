@@ -5,7 +5,15 @@ Some scripts for manipulating data for phylogenetics in R
 - ape
 - phytools
 
-# Brief description:
+# Loading Functions
+You can use these scripts by downloading individual script functions, or cloning the whole repository. Use source() on individual files, or use the following by directing the path to your cloned repository.
+
+```
+fxns <- list.files("path/to/RPhylo_scripts", full.names = TRUE)
+invisible(lapply(fxns, source))
+```
+
+# Usage
 - getDescendantTip: Get the descendant tips of a given node number. This is based on phytools::getDescendants, which returns all descendant node and tip numbers of a node, but sometimes you just want the tips. Returns tipnames by default, otherwise set tipnames = FALSE for the tip numbers (i.e. phy$tip.label indices)
 - getDescendantTips: Same as getDescendantTip, but for a vector of node numbers or all nodes in a phylo object.
 - getMRCAorParent: ape::getMRCA only works for two or more tips. For one tip, it is somewhat unexpected that the behavior is failure. For example, if you had multiple sets of taxa, some with one tip and some with multiple tips, you may want to identify clades in the tree so that you can color the branches of clades, even for a clade that is only represented by a single tip name. This can be solved using this function. This function calls ape::getMRCA unless a group is represented by a single tip name, in which case it calls phytools::getParent. 

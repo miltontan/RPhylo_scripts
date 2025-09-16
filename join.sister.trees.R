@@ -1,3 +1,6 @@
+# R function created by Milton Tan
+# Depends on ape and phytools
+
 # This function is used for a specific case:
 # This function will combine two time trees (phylo objects) into a single time tree (phylo object) if both trees are mutually exclusive clades. They will be joined in the resulting tree as sister clades.
 # Combining these trees cannot use the bind.tip() function alone, because the age of the MRCA of the two trees is not necessarily present in either tree.
