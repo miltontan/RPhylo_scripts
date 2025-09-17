@@ -9,7 +9,7 @@ Some scripts for manipulating data for phylogenetics in R
 You can use these scripts by downloading individual script functions, or cloning the whole repository. Use source() on individual files, or use the following by directing the path to your cloned repository.
 
 ```
-fxns <- list.files("path/to/RPhylo_scripts", full.names = TRUE)
+fxns <- list.files("path/to/RPhylo_scripts", pattern = "\\.R$", full.names = TRUE)
 invisible(lapply(fxns, source))
 ```
 
